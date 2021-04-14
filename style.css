@@ -51,7 +51,11 @@ grid-area: main;
 height: 83vh
 }
 
-
+.styles {
+    margin: 1rem;
+    height: 35rem;
+    
+}
 
 .footer {
 grid-area: footer;
