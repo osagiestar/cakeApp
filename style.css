@@ -51,10 +51,15 @@ grid-area: main;
 height: 83vh
 }
 
-.styles {
+.item-styles {
     margin: 1rem;
     height: 35rem;
-    
+    border-bottom: 0.1rem;
+}
+
+.cake-image {
+    max-height: 23rem;
+    max-width: 23rem
 }
 
 .footer {
