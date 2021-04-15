@@ -1,0 +1,123 @@
+html {
+    font-size: 62.5%;
+    box-sizing: border-box
+}
+
+body {
+    font: 1.6rem Helvetica;
+    height: 100vh;
+    margin: 0
+}
+
+grid-container {
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 5rem 1fr 5rem;
+    height: 100%
+}
+
+.header {
+    grid-area: header;
+    background-color: rgb(36, 53, 47);
+    color: #fefefe;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem
+}
+
+.brand-name a {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
+}
+
+.brand-name a:hover {
+    color: #ac4242
+}
+
+.header-links a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.header-links a:hover {
+    color: #ac4242
+}
+
+.main {
+grid-area: main;
+/* height: 83vh */
+}
+
+.items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.items li {
+flex: 0 1 34rem;
+height: 38rem;
+border-bottom: 0.1rem #723a3a;
+margin: 1rem;
+list-style-type: none;
+padding: 0;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between
+}
+
+.item {
+    margin: 1rem;
+    height: 35rem;
+    border-bottom: 0.1rem;
+}
+
+.cake-image {
+    max-height: 30rem;
+    max-width: 30rem
+}
+
+.cake-price {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font: 2.1rem;
+    font-weight: bold
+}
+
+.footer {
+grid-area: footer;
+color: #ffffff;
+background-color: #aaaadd;
+display: flex;
+text-align: center;
+justify-content: center;
+font-style: italic;
+}
+
+/*logo */
+.logo {
+  animation: logo-spin infinite 50s linear;
+  height: 3.5rem;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
