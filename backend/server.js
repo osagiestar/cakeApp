@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const detail = require('./data.js');
 const { Pool } = require("pg");
+require('dotenv').config()
 
 // middleware 
 app.use(cors());
