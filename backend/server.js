@@ -1,9 +1,22 @@
 const express = require("express");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const app = express();
+const detail = require('./data.js');
+const { Pool } = require("pg");
+
+// middleware 
+app.use(cors());
+app.use(express.json());
 app.use(bodyParser.json());
 
-const detail = require('./data.js')
+const pool = new Pool({
+  user: "osagie",
+  host: "localhost",
+  database: "cakedb",
+  password: "password",
+  port: 5432,
+});
  
 app.get("/cakes", function (req, res) {
   // res.send("Hello World!");
@@ -17,6 +30,6 @@ app.post("/cakes/add", function (req, res) {
   res.send("log")
 })
 
-app.listen(3000, function () {
+app.listen(3002, function () {
   console.log("Server is listening on port 3000. Ready to accept requests!");
 });
