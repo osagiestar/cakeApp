@@ -11,10 +11,10 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 const pool = new Pool({
-  user: "osagie",
-  host: "localhost",
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
   database: "cakedb",
-  password: "password",
+  password: process.env.DB_PASS,
   port: 5432,
 });
  
