@@ -19,6 +19,7 @@ const pool = new Pool({
   port: 5432,
 });
  
+// get request for all cakes
 app.get("/cakes", function (req, res) {
   // res.send("Hello World!");
   console.log(detail.data)
@@ -26,11 +27,22 @@ app.get("/cakes", function (req, res) {
 res.send(detail.data)
 }); 
 
-app.post("/cakes/add", function (req, res) {
-  console.log(req.body)
-  res.send("log")
+// post to create a cake
+app.post("/cakes/add",  async(req, res) => {
+  try {
+    const {cakeDetails} = req.body;
+    const newCakeItem = await pool.query(
+      "INSERT INTO cakes (cakeDetails) VALUES($1)", [cakeDetails]
+    )} 
+    catch (err) {
+    alert (err)
+  }
+  
+  res.json(newCakeItem)
 })
 
-app.listen(3002, function () {
+
+
+app.listen(3000, function () {
   console.log("Server is listening on port 3000. Ready to accept requests!");
 });
