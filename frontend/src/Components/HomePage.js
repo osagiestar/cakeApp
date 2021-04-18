@@ -6,16 +6,20 @@ const HomePage = (props) => {
         <ul className="items">
             {data.map((item) => {
                 return (
-                    <li>
-                        <div className="item">
-                            <img
-                                className="cake-image"
-                                src={item.image} alt="cake-image"
-                            />
-                            <div href="cake1.html"> {item.name} </div>
-                            <div className="cake-price"> Price: £{item.price} </div>
+                    <main className="main">
+                        <div className="cake-group">
+                            <li>
+                                <div className="item">
+                                    <img
+                                        className="cake-image"
+                                        src={item.image} alt="cake-image"
+                                    />
+                                    <div href="cake1.html"> {item.name} </div>
+                                    <div className="cake-price"> Price: £{item.price} </div>
+                                </div>
+                            </li>
                         </div>
-                    </li>
+                    </main>
                 )
             })}
         </ul>
