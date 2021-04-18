@@ -1,7 +1,10 @@
 import "./App.css";
-import data from './data'
+import data from './data';
+import HomePage from './Components/HomePage';
+
 function App() {
   return (
+    
     <div className="App">
       <div className="grid-container">
         <header className="header">
@@ -18,21 +21,7 @@ function App() {
         </header>
         <main className="main">
           <div className="cake-group">
-            <ul className="items">
-              {data.map((item) => {
-                return (
-                  <li>
-                <div className="item">
-                  <img
-                    className="cake-image"
-                   src= {item.image} alt="cake-image"
-                  />
-                  <div href="cake1.html"> {item.name} </div>
-                  <div className="cake-price"> Price: £{item.price} </div>
-                </div>
-                </li>
-                )  })}
-            </ul>
+           <HomePage/>
           </div>
         </main>
         <footer className="footer">
