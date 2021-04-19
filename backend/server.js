@@ -10,6 +10,7 @@ require('dotenv').config()
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
 
 const pool = new Pool({
   user: process.env.DB_USER,
@@ -20,17 +21,19 @@ const pool = new Pool({
 });
  
 // TEST: get request for all cakes from data.js
-app.get("/cakes", function (req, res) {
-  // res.send("Hello World!");
-  console.log(detail.data)
-  // res.send(detail.data[0]);
-res.send(detail.data)
-}); 
+// app.get("/cakes", function (req, res) {
+//   // res.send("Hello World!");
+//   console.log(detail.data)
+//   // res.send(detail.data[0]);
+// res.json(detail.data)
+// }); 
 
 // get request for all cakes
 app.get("/cakes", function (req, res) {
-  
-res.send(detail.data)
+  pool
+    .query("SELECT * FROM cakes ORDER BY name")
+    .then((result) => res.json(result.rows))
+    .catch((e) => console.error(e));
 }); 
 
 //get request for a cake
@@ -60,16 +63,15 @@ app.post("/cakes/add",  async(req, res) => {
 //get request for a customer//
 app.get("/customer", function (req, res) {
   const name = req.query.name;
-  const email = req.query.email;
+  // const email = req.query.email;
 
-  let customerQuery = `SELECT * FROM customers WHERE name='John Smith' AND email='j.smith@johnsmith.org'`
+  let customerQuery = `SELECT * FROM customers WHERE name='John Smith'`
   pool
     .query(customerQuery)
     .then((result) => res.json(result.rows))
     .catch((e) => console.error(e));
 });
 
-
-app.listen(3003, function () {
+app.listen(3005, function () {
   console.log("Server is listening on port 3003. Ready to accept requests!");
 });

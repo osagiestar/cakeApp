@@ -22,7 +22,7 @@ const Header = () => {
             </div>
              
         </header>
-        <Route path="/customers/" component={SignIn} />
+        <Route path="/customers" component={SignIn} />
     </BrowserRouter>
     )
 }

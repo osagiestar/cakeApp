@@ -2,6 +2,7 @@ CREATE DATABASE cakedb;
 
 CREATE TABLE cakes (
     id SERIAL PRIMARY KEY,
+    image VARCHAR(100) 
     name VARCHAR(30) NOT NULL,
     price INT NOT NULL
 );
@@ -17,7 +18,7 @@ CREATE TABLE customers (
   UNIQUE(email) 
 );
 
-INSERT INTO cakes(name, price) VALUES('2year Birthday Cake', 50);
+INSERT INTO cakes(name, price) VALUES('', '2year Birthday Cake', 50);
 INSERT INTO cakes(name, price) VALUES('4th Birthday Cake', 60);
 
 INSERT INTO customers (name, email, address, city, postcode, country) VALUES ('John Smith','j.smith@johnsmith.org','11 New Road','Liverpool','L10 2AB','UK');
