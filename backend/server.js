@@ -19,7 +19,7 @@ const pool = new Pool({
   port: 5432,
 });
  
-// TEST: get request for all cakes
+// TEST: get request for all cakes from data.js
 app.get("/cakes", function (req, res) {
   // res.send("Hello World!");
   console.log(detail.data)
@@ -57,7 +57,19 @@ app.post("/cakes/add",  async(req, res) => {
   }
 })
 
+//get request for a customer//
+app.get("/customer", function (req, res) {
+  const name = req.query.name;
+  const email = req.query.email;
+
+  let customerQuery = `SELECT * FROM customers WHERE name='John Smith' AND email='j.smith@johnsmith.org'`
+  pool
+    .query(customerQuery)
+    .then((result) => res.json(result.rows))
+    .catch((e) => console.error(e));
+});
+
 
 app.listen(3003, function () {
-  console.log("Server is listening on port 3000. Ready to accept requests!");
+  console.log("Server is listening on port 3003. Ready to accept requests!");
 });
