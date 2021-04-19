@@ -1,7 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Link } from 'react-router-dom';
+import { BrowserRouter, Link, Route } from 'react-router-dom';
+// import SignIn from './SignIn'
  
 const Header = () => {
+    const SignIn = ({ match }) => {
+  return <h3> Customer: {match.params.name}</h3>;
+};
     return (
     <BrowserRouter>
         <header className="header">
@@ -13,9 +17,12 @@ const Header = () => {
             </div>
             <div className="header-links">
                 <a href="cart.html"> Cart </a>
-                <a href="signin.html"> Sign In </a>
+               <Link to="/customers"> Sign In </Link>
+
             </div>
+             
         </header>
+        <Route path="/customers/" component={SignIn} />
     </BrowserRouter>
     )
 }
