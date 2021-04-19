@@ -56,6 +56,13 @@ grid-container {
 grid-area: main;
 /* height: 83vh */
 }
+/* Search*/
+.search .page-header .search-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
 .items {
     display: flex;

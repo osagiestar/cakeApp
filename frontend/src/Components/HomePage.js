@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import data from '../data';
-
+import Search from './Search'
+ 
 const HomePage = (props) => {
+    const [cakeDisplay, setCakeDisplay] = useState(data);
+
+    const searchForCake = (searchText) => {console.log(searchText);
+        setCakeDisplay(data.filter(item => item.name.toLowerCase().includes(searchText)))
+    }
+    console.log(cakeDisplay);
     return <div>
+        <Search searchForCake={searchForCake} />
         <ul className="items">
-            {data.map((item) => {
+            {cakeDisplay.map((item) => {
                 return (
                     <main className="main">
+
                         <div className="cake-group">
                             <li>
                                 <div className="item">
