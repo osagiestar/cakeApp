@@ -17,12 +17,12 @@ const Header = () => {
             </div>
             <div className="header-links">
                 <a href="cart.html"> Cart </a>
-               <Link to="/customers"> Sign In </Link>
+               <Link to="/customer"> Sign In </Link>
 
             </div>
              
         </header>
-        <Route path="/customers" component={SignIn} />
+        <Route path="/customer" component={SignIn} />
     </BrowserRouter>
     )
 }
