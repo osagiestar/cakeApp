@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 
 const pool = new Pool({
   user: process.env.DB_USER,
-  host: process.env.DB_HOST,
+  host: process.env.DB_HOST, 
   database: "cakedb",
   password: process.env.DB_PASS,
   port: 5432,
@@ -26,7 +26,7 @@ const pool = new Pool({
 //   console.log(detail.data)
 //   // res.send(detail.data[0]);
 // res.json(detail.data)
-// }); 
+// });
 
 // get request for all cakes
 app.get("/cakes", function (req, res) {
@@ -62,16 +62,25 @@ app.post("/cakes/add",  async(req, res) => {
 
 //get request for a customer//
 app.get("/customer", function (req, res) {
-  const name = req.query.name;
-  // const email = req.query.email;
-
-  let customerQuery = `SELECT * FROM customers WHERE name='John Smith'`
+ 
+  let customerQuery = `SELECT name FROM customers WHERE name='John Smith'`
+  // let customerQuery = "SELECT * FROM customers"
   pool
     .query(customerQuery)
     .then((result) => res.json(result.rows))
     .catch((e) => console.error(e));
+}); 
+
+app.get("/customer/:id", function (req, res) {
+  const {id} = req.params;
+ 
+  let customerQuery = "SELECT name FROM customers WHERE id=$1"
+  pool
+    .query(customerQuery, [id])
+    .then((result) => res.json(result.rows))
+    .catch((e) => console.error(e));
 });
 
-app.listen(3005, function () {
-  console.log("Server is listening on port 3003. Ready to accept requests!");
+app.listen(3000, function () {
+  console.log("Server is listening on port 3000. Ready to accept requests!");
 });

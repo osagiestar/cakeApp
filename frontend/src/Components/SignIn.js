@@ -1,14 +1,18 @@
-// import React from 'react';
-// import {useState} from 'react'
+// import React, { useEffect } from 'react';
+// import { useState } from 'react'
 
 // const SignIn = () => {
-// const [userIn, setUserIn] = useState();
+//     const [user, setUser] = useState();
 
+//     useEffect(() => {
+//         fetch('localhost:3000/customer')
+//             .then(response => response.json())
+//             .then(data => setUser(data));
+//     });
 
-
-// return (
-//   <a href="signin.html"> Sign In </a>
-// )
+//     return (
+//         <h3> Customer: user={user}</h3>
+//     )
 // }
 
 // export default SignIn;
