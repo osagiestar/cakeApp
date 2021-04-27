@@ -2,7 +2,7 @@ import React from 'react';
 import "./App.css";
 // import data from './data';
 import { BrowserRouter } from 'react-router-dom';
-import HomePage from './Components/HomePage';
+// import HomePage from './Components/HomePage';
 import Header from "./Components/Header";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <div className="App">
         <div className="grid-container">
           <Header />
-          <HomePage />
+          {/* <HomePage /> */}
           <footer className="footer">
             <p> All copyright reserved @bakesbydebbie 2021</p>
           </footer>

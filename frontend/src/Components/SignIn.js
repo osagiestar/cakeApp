@@ -1,18 +1,21 @@
-// import React, { useEffect } from 'react';
-// import { useState } from 'react'
+import React, {useState, useEffect } from 'react';
 
-// const SignIn = () => {
-//     const [user, setUser] = useState();
+const SignIn = () => {
+     const [user, setUser] = useState([]);
+          useEffect(() => {
+        fetch('http://localhost:3001/customer')
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                setUser(data)
+            }
+        )
+    }, []);
 
-//     useEffect(() => {
-//         fetch('localhost:3000/customer')
-//             .then(response => response.json())
-//             .then(data => setUser(data));
-//     });
+    console.log(user)
+    return <div>
+        <p> Customer details: {user.name} {user.address}</p>
+    </div>  
+}
 
-//     return (
-//         <h3> Customer: user={user}</h3>
-//     )
-// }
-
-// export default SignIn;
+export default SignIn;

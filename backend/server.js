@@ -63,14 +63,15 @@ app.post("/cakes/add",  async(req, res) => {
 //get request for a customer//
 app.get("/customer", function (req, res) {
  
-  let customerQuery = `SELECT name FROM customers WHERE name='John Smith'`
-  // let customerQuery = "SELECT * FROM customers"
+  // let customerQuery = `SELECT * FROM customers WHERE name='John Smith'`
+  let customerQuery = "SELECT * FROM customers WHERE id = 4" 
   pool
     .query(customerQuery)
-    .then((result) => res.json(result.rows))
+    .then((result) => res.json(result.rows[0]))
     .catch((e) => console.error(e));
 }); 
 
+// get one selected customer
 app.get("/customer/:id", function (req, res) {
   const {id} = req.params;
  
@@ -81,6 +82,6 @@ app.get("/customer/:id", function (req, res) {
     .catch((e) => console.error(e));
 });
 
-app.listen(3000, function () {
-  console.log("Server is listening on port 3000. Ready to accept requests!");
-});
+app.listen(3001, function () {
+  console.log("Server is listening on port 3001. Ready to accept requests!");
+}); 
