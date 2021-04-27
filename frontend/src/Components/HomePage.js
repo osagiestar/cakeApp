@@ -1,29 +1,15 @@
 import React, { useState } from 'react';
-// import React, { useState, useEffect } from 'react';
 import data from '../data';
 import Search from './Search'
 
-const HomePage = (props) => {
+const HomePage = () => {
     const [cakeDisplay, setCakeDisplay] = useState(data);
-    // const [cakeDisplay, setCakeDisplay] = useState([]);
 
     const searchForCake = (searchText) => {
         console.log(searchText);
         setCakeDisplay(data.filter(item => item.name.toLowerCase().includes(searchText)))
     }
-    console.log(cakeDisplay);
-
-    // const searchForCake = (searchText) => {
-    //     console.log(searchText);
-    //     setCakeDisplay(cakeDisplay.filter(item => item.name.toLowerCase().includes(searchText)))
-    // }
-
-    // useEffect(() => {
-    //     fetch('localhost:3002/cakes/')
-    //         .then(response => response.json())
-    //         .then(data => setCakeDisplay(data));
-    // },[]);
-    // console.log(cakeDisplay);
+    console.log(cakeDisplay)
 
     return <div>
         <Search searchForCake={searchForCake} />
