@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import HomePage from './HomePage';
-import Customer from './Customer'
+import Customer from './Customer';
+import SignIn from './SignIn';
 
 const Header = () => {
   return (
@@ -21,7 +22,7 @@ const Header = () => {
       <Switch>
         <Route path="/cakes" component={HomePage} />
         {/* <Route exact path= "/cakes" component={Cakes}/> */}
-        <Route exact path="/customer" component={Customer} />
+        <Route exact path="/customer" component={SignIn} />
       </Switch>
     </BrowserRouter>
   );
