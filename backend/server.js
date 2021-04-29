@@ -82,6 +82,6 @@ app.get("/customer/:id", function (req, res) {
     .catch((e) => console.error(e));
 });
 
-app.listen(3001, function () {
-  console.log("Server is listening on port 3001. Ready to accept requests!");
+app.listen(3002, function () {
+  console.log("Server is listening on port 3002. Ready to accept requests!");
 }); 
