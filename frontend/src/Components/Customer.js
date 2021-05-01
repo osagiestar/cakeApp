@@ -4,13 +4,13 @@ import Table from 'react-bootstrap/Table';
 function Customer() {
     const [customer, setCustomer] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:3002/customer')
+        fetch('http://localhost:3002/customers/all')
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
                 setCustomer(data)
             }
-            )
+        )
     }, []);
 
     console.log(customer)
@@ -36,7 +36,7 @@ function Customer() {
                     </tr>
                 ))}
             </body>
-            <p> Customer details: {customer.name} {customer.address}</p>
+            {/* <p> Customer details: {customer.name} {customer.address}</p> */}
         </Table>
     </div>
 }
