@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import data from '../data';
 import Search from './Search'
- 
-const HomePage = (props) => {
+
+const HomePage = () => {
     const [cakeDisplay, setCakeDisplay] = useState(data);
 
-    const searchForCake = (searchText) => {console.log(searchText);
+    const searchForCake = (searchText) => {
+        console.log(searchText);
         setCakeDisplay(data.filter(item => item.name.toLowerCase().includes(searchText)))
     }
-    console.log(cakeDisplay);
+    console.log(cakeDisplay)
+
     return <div>
         <Search searchForCake={searchForCake} />
         <ul className="items">

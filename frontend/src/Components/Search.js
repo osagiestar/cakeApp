@@ -7,7 +7,8 @@ const Search = ({ searchForCake }) => {
     setSearchInput(event.target.value);
   }
 
-  function submitHandler(event) {console.log(searchInput);
+  function submitHandler(event) {
+    console.log(searchInput);
     event.preventDefault();
     searchForCake(searchInput);
   }
@@ -19,21 +20,22 @@ const Search = ({ searchForCake }) => {
       </div>
       <div className="row search-wrapper">
         <div className="col">
-            <div className="search-row">
-              <input
-                type="text"
-                id="cake-id"
-                className="form-control"
-                placeholder="Cake name"
-                value={searchInput}
-                onChange={handleSearchInput}
-              />
-              <SearchButton searchForCake={submitHandler}/>
-            </div>
+          <div className="search-row">
+            <input
+              type="text"
+              id="cake-id"
+              className="form-control"
+              placeholder="Cake name"
+              value={searchInput}
+              onChange={handleSearchInput}
+            />
+            <SearchButton searchForCake={submitHandler} />
+          </div>
         </div>
       </div>
     </div>
   );
+   
 };
 
 export default Search;
