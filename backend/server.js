@@ -60,6 +60,16 @@ app.post("/cakes/add",  async(req, res) => {
   }
 })
 
+app.get("/customers/all", function (req, res) {
+ 
+  // let customerQuery = `SELECT * FROM customers WHERE name='John Smith'`
+  let customerQuery = "SELECT * FROM customers" 
+  pool
+    .query(customerQuery)
+    .then((result) => res.json(result.rows))
+    .catch((e) => console.error(e));
+}); 
+
 //get request for a customer//
 app.get("/customer", function (req, res) {
  
