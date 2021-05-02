@@ -10,33 +10,35 @@ function Customer() {
                 console.log(data);
                 setCustomer(data)
             }
-        )
+            )
     }, []);
 
     console.log(customer)
     return <div>
+        <h1> List of Customers </h1>
         <Table className="customer-list">
             <thead>
-                <tr> Name </tr>
-                <tr> Email </tr>
-                <tr> Address </tr>
-                <tr> City </tr>
-                <tr> Postcode </tr>
-                <tr> Country </tr>
+                <tr>
+                    <th> Name </th>
+                    <th> Email </th>
+                    <th> Address </th>
+                    <th> City </th>
+                    <th> Postcode </th>
+                    <th> Country </th>
+                </tr>
             </thead>
             <body>
-                {customer.map((item) => (
-                    <tr>
-                    <td> {item.name} </td>
-                    <td> {item.email} </td>
-                    <td> {item.address} </td>
-                    <td> {item.city} </td>
-                    <td> {item.postcode} </td>
-                    <td> {item.country} </td>
+                {customer.map((item, index) => (
+                    <tr key={index}>
+                        <td> {item.name} </td>
+                        <td> {item.email} </td>
+                        <td> {item.address} </td>
+                        <td> {item.city} </td>
+                        <td> {item.postcode} </td>
+                        <td> {item.country} </td>
                     </tr>
                 ))}
             </body>
-            {/* <p> Customer details: {customer.name} {customer.address}</p> */}
         </Table>
     </div>
 }
