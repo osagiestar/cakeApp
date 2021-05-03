@@ -15,8 +15,8 @@ function Customer() {
 
     console.log(customer)
     return <div>
-        <h1> List of Customers </h1>
-        <Table className="customer-list">
+        <h2 id="title"> List of Customers </h2>
+        <Table className="customer">
             <thead>
                 <tr>
                     <th> Name </th>
@@ -27,7 +27,7 @@ function Customer() {
                     <th> Country </th>
                 </tr>
             </thead>
-            <body>
+            <tbody>
                 {customer.map((item, index) => (
                     <tr key={index}>
                         <td> {item.name} </td>
@@ -38,7 +38,7 @@ function Customer() {
                         <td> {item.country} </td>
                     </tr>
                 ))}
-            </body>
+            </tbody>
         </Table>
     </div>
 }
