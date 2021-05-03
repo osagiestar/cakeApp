@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 
 function Customer() {
-    const [customer, setCustomer] = useState([]);
+    const [customerList, setCustomerList] = useState([]);
     useEffect(() => {
         fetch('http://localhost:3002/customers/all')
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                setCustomer(data)
+                setCustomerList(data)
             }
             )
     }, []);
 
-    console.log(customer)
+    console.log(customerList)
     return <div>
         <h2 id="title"> List of Customers </h2>
         <Table className="customer">
@@ -28,7 +28,7 @@ function Customer() {
                 </tr>
             </thead>
             <tbody>
-                {customer.map((item, index) => (
+                {customerList.map((item, index) => (
                     <tr key={index}>
                         <td> {item.name} </td>
                         <td> {item.email} </td>
