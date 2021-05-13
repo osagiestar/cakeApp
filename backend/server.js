@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const app = express();
-const detail = require('./data.js');
+// const detail = require('./data.js');
 const { Pool } = require("pg");
 require('dotenv').config()
 
@@ -20,14 +20,6 @@ const pool = new Pool({
   port: 5432,
 });
  
-// TEST: get request for all cakes from data.js
-// app.get("/cakes", function (req, res) {
-//   // res.send("Hello World!");
-//   console.log(detail.data)
-//   // res.send(detail.data[0]);
-// res.json(detail.data)
-// });
-
 // get request for all cakes
 app.get("/cakes", function (req, res) {
   pool
@@ -60,9 +52,8 @@ app.post("/cakes/add",  async(req, res) => {
   }
 })
 
+// get request for listing all customers 
 app.get("/customers/all", function (req, res) {
- 
-  // let customerQuery = `SELECT * FROM customers WHERE name='John Smith'`
   let customerQuery = "SELECT * FROM customers" 
   pool
     .query(customerQuery)
@@ -70,25 +61,14 @@ app.get("/customers/all", function (req, res) {
     .catch((e) => console.error(e));
 }); 
 
-//get request for a customer//
-app.get("/customer", function (req, res) {
- 
-  // let customerQuery = `SELECT * FROM customers WHERE name='John Smith'`
-  let customerQuery = "SELECT * FROM customers WHERE id = 4" 
-  pool
-    .query(customerQuery)
-    .then((result) => res.json(result.rows[0]))
-    .catch((e) => console.error(e));
-}); 
-
-// get one selected customer
-app.get("/customer/:id", function (req, res) {
+//get request for a customer by id//
+app.get("/customers/:id", function (req, res) {
   const {id} = req.params;
  
-  let customerQuery = "SELECT name FROM customers WHERE id=$1"
+  let customerQuery = "SELECT name FROM customers WHERE id=$1";
   pool
     .query(customerQuery, [id])
-    .then((result) => res.json(result.rows))
+    .then((result) => res.json(result.rows[0]))
     .catch((e) => console.error(e));
 });
 
