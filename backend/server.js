@@ -58,7 +58,7 @@ app.get("/sign-in/admin/:id", function(req, res) {
   const userQuery = "SELECT * FROM users WHERE type='Admin' AND id=$1";
  pool
     .query(userQuery, [id])
-    .then((result) => res.json(result.rows))
+    .then((result) => res.json(result.rows[0]))
     .catch((e) => console.error(e));
 });
 
