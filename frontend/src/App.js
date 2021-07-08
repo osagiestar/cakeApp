@@ -14,7 +14,7 @@ function App() {
         <div className="grid-container">
           <Header />
           {/* <HomePage /> */}
-         <Footer/>
+         <Footer year = {new Date().getFullYear()}/>
         </div>
       </div>
     </BrowserRouter>
