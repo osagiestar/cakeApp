@@ -15,7 +15,7 @@ const Header = () => {
           <Link to="/cakes"> bakesbydebbie </Link>
         </div>
         <div className="header-links">
-          <Link to="/customer"> Customer </Link>
+          <Link to="/customers/all"> Customer </Link>
           <a href="cart.html"> Cart </a>
           <Link to="/customer"> Sign In </Link>
         </div>
@@ -24,7 +24,7 @@ const Header = () => {
         <Route path="/cakes" component={HomePage} />
         {/* <Route exact path= "/cakes" component={Cakes}/> */}
         <Route exact path="/customer" component={SignIn} />
-         <Route exact path="/customer" component={Customer} />
+         <Route exact path="/customers/all" component={Customer} />
       </Switch>
     </BrowserRouter>
   );

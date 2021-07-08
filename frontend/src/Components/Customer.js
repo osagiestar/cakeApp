@@ -2,41 +2,43 @@ import React, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 
 function Customer() {
-    const [customer, setCustomer] = useState([]);
+    const [customerList, setCustomerList] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:3002/customer')
+        fetch('http://localhost:3002/customers/all')
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                setCustomer(data)
+                setCustomerList(data)
             }
             )
     }, []);
 
-    console.log(customer)
+    console.log(customerList)
     return <div>
-        <Table className="customer-list">
+        <h2 id="title"> List of Customers </h2>
+        <Table className="customer">
             <thead>
-                <tr> Name </tr>
-                <tr> Email </tr>
-                <tr> Address </tr>
-                <tr> City </tr>
-                <tr> Postcode </tr>
-                <tr> Country </tr>
+                <tr>
+                    <th> Name </th>
+                    <th> Email </th>
+                    <th> Address </th>
+                    <th> City </th>
+                    <th> Postcode </th>
+                    <th> Country </th>
+                </tr>
             </thead>
-            <body>
-                {customer.map((item) => (
-                    <tr>
-                    <td> {item.name} </td>
-                    <td> {item.email} </td>
-                    <td> {item.address} </td>
-                    <td> {item.city} </td>
-                    <td> {item.postcode} </td>
-                    <td> {item.country} </td>
+            <tbody>
+                {customerList.map((item, index) => (
+                    <tr key={index}>
+                        <td> {item.name} </td>
+                        <td> {item.email} </td>
+                        <td> {item.address} </td>
+                        <td> {item.city} </td>
+                        <td> {item.postcode} </td>
+                        <td> {item.country} </td>
                     </tr>
                 ))}
-            </body>
-            <p> Customer details: {customer.name} {customer.address}</p>
+            </tbody>
         </Table>
     </div>
 }

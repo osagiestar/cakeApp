@@ -4,6 +4,7 @@ import "./App.css";
 import { BrowserRouter } from 'react-router-dom';
 // import HomePage from './Components/HomePage';
 import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -13,9 +14,7 @@ function App() {
         <div className="grid-container">
           <Header />
           {/* <HomePage /> */}
-          <footer className="footer">
-            <p> All copyright reserved @bakesbydebbie 2021</p>
-          </footer>
+         <Footer year = {new Date().getFullYear()}/>
         </div>
       </div>
     </BrowserRouter>

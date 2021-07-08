@@ -1,21 +1,23 @@
-import React, {useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const SignIn = () => {
-     const [user, setUser] = useState([]);
-          useEffect(() => {
-        fetch('http://localhost:3002/customer')
+    const [user, setUser] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:3002/sign-in/admin/1')
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
                 setUser(data)
             }
-        )
+            )
     }, []);
 
     console.log(user)
-    return <div>
-        <p> Customer details: {user.name} {user.address}</p>
-    </div>  
+    return (
+    <div>
+        <p> <b>You are singed in as</b>: {user.name} ({user.type});  </p>
+    </div>
+    )
 }
 
 export default SignIn;
