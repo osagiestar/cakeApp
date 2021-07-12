@@ -58,12 +58,25 @@ grid-container {
 }
 
 /* Search*/
-.search .page-header .search-wrapper {
+.search .search-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.form-control {
+ margin-top: 30px;
+  text-align: center;
+  width: 400px;
+  height: 25px
+}
+
+.page-header {
+  color: red;
+  text-align: center;
+  justify-content: center;
+} 
 
 .items {
   display: flex;

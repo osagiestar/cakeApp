@@ -15,9 +15,6 @@ const Search = ({ searchForCake }) => {
 
   return (
     <div className="search">
-      <div className="page-header">
-        <h4 className="text-left">Search Cakes</h4>
-      </div>
       <div className="row search-wrapper">
         <div className="col">
           <div className="search-row">
