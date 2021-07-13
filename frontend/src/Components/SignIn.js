@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const SignIn = () => {
     const [user, setUser] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:3002/sign-in/admin/1')
+        fetch('http://localhost:3002/sign-in/admin/2')
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
