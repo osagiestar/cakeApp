@@ -21,3 +21,7 @@ For developers, you can inspect On Chrome using:
 
 You can also run on the BackEnd to start the server connected to the DB: 
 ### `npm start server.js`
+
+To implement testing, in the frontend folder run:
+
+### `npm test`
