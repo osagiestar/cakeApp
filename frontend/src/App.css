@@ -124,7 +124,7 @@ grid-container {
   background-color: #aaaadd;
   display: flex;
   text-align: center;
-  justify-content: center;
+  justify-content: space-around;
   font-style: italic;
 }
 
