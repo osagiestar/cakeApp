@@ -24,7 +24,6 @@ const [checkSignIn, setCheckSignIn] = useState(false);
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/cakes" component={HomePage} />
-        {/* <Route exact path= "/cakes" component={Cakes}/> */}
         <Route path="/customer" component={SignIn} />
         <Route path="/customers/all" component={Customer} />
       </Switch>
