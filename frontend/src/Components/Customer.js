@@ -14,7 +14,8 @@ function Customer() {
     }, []);
 
     console.log(customerList)
-    return <div>
+    return (
+    <div>
         <h2 id="title"> List of Customers </h2>
         <Table className="customer">
             <thead>
@@ -40,7 +41,7 @@ function Customer() {
                 ))}
             </tbody>
         </Table>
-    </div>
+    </div>)
 }
 
 export default Customer;

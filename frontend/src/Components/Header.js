@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import HomePage from './HomePage';
 import Customer from './Customer';
 import SignIn from './SignIn';
 
 const Header = () => {
+const [checkSignIn, setCheckSignIn] = useState(false);
   return (
     <BrowserRouter>
       <header className="header">
@@ -15,16 +16,16 @@ const Header = () => {
           <Link to="/cakes"> bakesbydebbie </Link>
         </div>
         <div className="header-links">
-          <Link to="/customers/all"> Customer </Link>
+          {!checkSignIn && <Link to="/customers/all"> Customer </Link> }
           <a href="cart.html"> Cart </a>
           <Link to="/customer"> Sign In </Link>
         </div>
       </header>
       <Switch>
+        <Route exact path="/" component={HomePage} />
         <Route path="/cakes" component={HomePage} />
-        {/* <Route exact path= "/cakes" component={Cakes}/> */}
-        <Route exact path="/customer" component={SignIn} />
-         <Route exact path="/customers/all" component={Customer} />
+        <Route path="/customer" component={SignIn} />
+        <Route path="/customers/all" component={Customer} />
       </Switch>
     </BrowserRouter>
   );

@@ -2,9 +2,12 @@ import React from 'react';
 
 const Footer = (props) => {
     return (
-    <footer className="footer">
-        <p> All copyright reserved @bakesbydebbie {props.year} </p>
-    </footer>
+      <div>
+        <footer className="footer">
+          <h5> osagiestar concepts </h5>
+          <p> All copyright reserved @bakesbydebbie {props.year} </p>
+        </footer>
+      </div>
     );
 }
 
