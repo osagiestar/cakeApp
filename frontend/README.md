@@ -19,7 +19,10 @@ You will also see any lint errors in the console.
 For developers, you can inspect On Chrome using:
 ### `ctrl+shift+i`
 
-You can also run on the BackEnd to start the server connected to the DB: 
+cd into the backend folder to start the database.sql by running:
+### `psql cakedb` 
+
+You can then run on the backend folder to start the server the following code: 
 ### `npm start server.js`
 
 To implement testing, in the frontend folder run:
