@@ -20,14 +20,6 @@ const pool = new Pool({
   port: 5432,
 });
 
-// // get request for all cakes
-// app.get("/cakes", function (req, res) {
-//   pool
-//     .query("SELECT * FROM cakes ORDER BY name")
-//     .then((result) => res.json(result.rows))
-//     .catch((e) => console.error(e));
-// }); 
-
 //get request for a cake
 app.get("/cakes/:cake_id", (req, res) => {
   const cake_id = req.params.cake_id;
