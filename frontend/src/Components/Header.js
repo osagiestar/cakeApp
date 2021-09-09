@@ -3,6 +3,7 @@ import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import HomePage from './HomePage';
 import Customer from './Customer';
 import SignIn from './SignIn';
+import Login from './Login';
 
 const Header = () => {
 const [checkSignIn, setCheckSignIn] = useState(false);
@@ -16,13 +17,15 @@ const [checkSignIn, setCheckSignIn] = useState(false);
           <Link to="/cakes"> bakesbydebbie </Link>
         </div>
         <div className="header-links">
-          {!checkSignIn && <Link to="/customers/all"> Customer </Link> }
+          <Link to="/login"> Login </Link>
+          {!checkSignIn && <Link to="/customers/all"> Customer </Link>}
           <a href="cart.html"> Cart </a>
           <Link to="/customer"> Sign In </Link>
         </div>
       </header>
       <Switch>
         <Route exact path="/" component={HomePage} />
+        <Route path="/login" component={Login} />
         <Route path="/cakes" component={HomePage} />
         <Route path="/customer" component={SignIn} />
         <Route path="/customers/all" component={Customer} />
