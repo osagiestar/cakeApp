@@ -17,10 +17,24 @@ const [checkSignIn, setCheckSignIn] = useState(false);
           <Link to="/cakes"> bakesbydebbie </Link>
         </div>
         <div className="header-links">
-          <Link to="/login"> Login </Link>
-          {!checkSignIn && <Link to="/customers/all"> Customer </Link>}
-          <a href="cart.html"> Cart </a>
-          <Link to="/customer"> Sign In </Link>
+          <Link className="space" to="/login">
+            {" "}
+            Login{" "}
+          </Link>
+          {!checkSignIn && (
+            <Link className="space"  to="/customers/all">
+              {" "}
+              Customer{" "}
+            </Link>
+          )}
+          <a className="space" href="cart.html">
+            {" "}
+            Cart{" "}
+          </a>
+          <Link className="space" to="/customer">
+            {" "}
+            Sign In{" "}
+          </Link>
         </div>
       </header>
       <Switch>
